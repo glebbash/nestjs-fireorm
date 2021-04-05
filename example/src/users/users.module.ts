@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FireormModule } from '../../../src/nestjs-fireorm';
+import { FireormModule } from 'nestjs-fireorm';
 import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 

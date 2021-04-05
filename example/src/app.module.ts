@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { credential } from 'firebase-admin';
-import { FireormModule } from '../../src/nestjs-fireorm';
+import { FireormModule } from 'nestjs-fireorm';
 
 @Module({
   imports: [

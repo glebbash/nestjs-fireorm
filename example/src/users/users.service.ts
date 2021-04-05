@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BaseFirestoreRepository } from 'fireorm';
-import { InjectRepository } from '../../../src/nestjs-fireorm';
+import { InjectRepository } from 'nestjs-fireorm';
 import { User } from './entities/user.entity';
 
 @Injectable()
