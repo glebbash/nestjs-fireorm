@@ -15,9 +15,8 @@ const config: Jest.Config.InitialOptions = {
       statements: 100,
     },
   },
-  collectCoverageFrom: ['src/*.{js,ts}'],
+  collectCoverageFrom: ['**/*.ts'],
   coveragePathIgnorePatterns: ['/node_modules/'],
-  testResultsProcessor: 'jest-sonar-reporter',
   coverageDirectory: '../.coverage',
   testEnvironment: 'node',
 };
