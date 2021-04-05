@@ -3,7 +3,7 @@ import { Firestore } from '@google-cloud/firestore';
 import firebase from 'firebase-admin';
 import { BaseFirestoreRepository, Collection } from 'fireorm';
 
-describe('firestore service', () => {
+describe('FireormService', () => {
   afterEach(() => jest.resetAllMocks());
 
   const projectId = 'stub';
@@ -16,7 +16,7 @@ describe('firestore service', () => {
   });
 
   describe('onModuleDestroy', () => {
-    it('calls terminate method on fs client', async () => {
+    it('calls terminate method on firestore client', async () => {
       const terminateSpy = jest.spyOn(firestore, 'terminate').mockResolvedValue();
 
       await fireormService.onModuleDestroy();

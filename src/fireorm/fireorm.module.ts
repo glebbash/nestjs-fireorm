@@ -2,7 +2,7 @@ import { Firestore } from '@google-cloud/firestore';
 import { DynamicModule, FactoryProvider, Module, Type } from '@nestjs/common';
 import type { MetadataStorageConfig } from 'fireorm/lib/src/MetadataStorage';
 import { FireormService } from './fireorm.service';
-import { getRepositoryToken } from './utils/repository';
+import { getRepositoryToken } from './utils/repository-token';
 
 export const FireormSettings = Symbol('FireormSettings');
 export type FireormSettings =
