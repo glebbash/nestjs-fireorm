@@ -4,7 +4,7 @@ import firebase from 'firebase-admin';
 import { BaseFirestoreRepository, Collection } from 'fireorm';
 
 describe('FireormService', () => {
-  afterEach(() => jest.resetAllMocks());
+  afterEach(() => jest.restoreAllMocks());
 
   const projectId = 'stub';
   const firestore = new Firestore({
