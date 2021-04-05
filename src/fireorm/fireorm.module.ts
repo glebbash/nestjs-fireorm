@@ -79,7 +79,12 @@ export class FireormModule {
           inject: [FireormSettings],
           useFactory: firestoreProvider,
         },
-        FireormService,
+        {
+          provide: FireormService,
+          inject: [Firestore, FireormSettings],
+          useFactory: (firestore: Firestore, settings: FireormSettings) =>
+            new FireormService(firestore, settings),
+        },
       ],
       exports: [FireormService],
     };

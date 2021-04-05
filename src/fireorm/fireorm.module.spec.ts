@@ -1,5 +1,6 @@
 import { getRepositoryToken } from '../nestjs-fireorm';
 import { FireormModule, FireormSettings, firestoreProvider } from './fireorm.module';
+jest.mock('./fireorm.service');
 import { FireormService } from './fireorm.service';
 import 'jest-extended';
 jest.mock('@google-cloud/firestore');
@@ -41,7 +42,18 @@ describe('FireormModule', () => {
             inject: [FireormSettings],
             useFactory: firestoreProvider,
           },
-          FireormService,
+          {
+            provide: FireormService,
+            inject: [Firestore, FireormSettings],
+            useFactory: expect.toSatisfy((fun) => {
+              const fireormService = fun(1, 2);
+
+              expect(fireormService).toBeInstanceOf(FireormService);
+              expect(FireormService).toBeCalledWith(1, 2);
+
+              return true;
+            }),
+          },
         ],
         exports: [FireormService],
       });
