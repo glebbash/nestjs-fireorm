@@ -13,4 +13,4 @@ Installation:
 npm i nestjs-fireorm
 ```
 
-<!-- TODO: examples -->
+[Example usage](https://github.com/glebbash/nestjs-fireorm/tree/master/example/src)
