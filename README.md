@@ -14,3 +14,5 @@ npm i nestjs-fireorm
 ```
 
 [Example usage](https://github.com/glebbash/nestjs-fireorm/tree/master/example/src)
+
+[Mit Licensed](LICENSE)
