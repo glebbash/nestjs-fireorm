@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "description": "Nestjs Fireorm module",
   "keywords": [
-    "config",
-    "env-var",
-    "dotenv",
+    "nestjs",
+    "fireorm",
+    "firestore",
+    "firebase",
     "typescript"
   ],
   "main": "dist/lib/nestjs-fireorm.js",
