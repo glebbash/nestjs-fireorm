@@ -67,7 +67,7 @@ export class UserEntity {
 
 Read more about [Fireorm's core concepts][fireorm-core] on how _entities_ should be defined.
 
-Entities has be imported in your module, and we expose a simple method to do this, which looks like
+Entities has to be imported in your module, and we expose a simple method to do this, which looks like
 this:
 
 ```typescript
