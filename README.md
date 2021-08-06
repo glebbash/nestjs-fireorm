@@ -50,7 +50,7 @@ import { FireormModule } from 'nestjs-fireorm';
 export class AppModule {}
 ```
 
-_There are other examples, which you can find in our repository [app.module.ts][app-module])._
+_There are other examples, which you can find in our repository [app.module.ts][app-module]._
 
 To improve developer readability, we suggest using the same semantics as defined in [Nest's
 documentation on database][nest-db]. Like, when creating a User type, we suggest using the name
