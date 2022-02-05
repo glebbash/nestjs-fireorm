@@ -2709,18 +2709,82 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#nestjs-fireorm" id="nestjs-fireorm" style="color: inherit; text-decoration: none;">
-				<h1>nestjs-fireorm</h1>
-			</a>
+			<p align="center">
+				<img
+				src="./.github/header.svg"
+				width="250"
+				/>
+			</p>
+			<h1 align="center">NestJS Fireorm</h1>
+			<p align="center">
+				<strong>Wrapper for NestJS / Fireorm</strong>
+			</p>
 			<p><a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier"></a>
-			<a href="https://coveralls.io/github/glebbash/nestjs-fireorm?branch=master"><img src="https://coveralls.io/repos/github/glebbash/nestjs-fireorm/badge.svg?branch=master" alt="Coverage Status"></a></p>
-			<p><a href="https://nestjs.com">Nest.js</a>
-				<a href="https://fireorm.js.org">Fireorm</a>
-			module</p>
-			<p>Installation:</p>
+				<a href="https://coveralls.io/github/glebbash/nestjs-fireorm?branch=master"><img src="https://coveralls.io/repos/github/glebbash/nestjs-fireorm/badge.svg?branch=master" alt="Coverage Status"></a>
+			<a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></p>
+			<p><code>nestjs-fireorm</code> is a tiny <a href="https://nestjs.com">Nest.js</a> <a href="https://fireorm.js.org">Fireorm</a> module.</p>
+			<blockquote>
+				<p>Fireorm 🔥 is a tiny wrapper on top of firebase-admin that makes life easier when dealing with a
+				Firestore database.</p>
+			</blockquote>
+			<p>This module makes it easier when dealing with Firestore database when using Nest.js!</p>
+			<p><strong>docs</strong>: <a href="https://glebbash.github.io/nestjs-fireorm/">https://glebbash.github.io/nestjs-fireorm/</a></p>
+			<hr>
+			<p>Let&#39;s get started!</p>
 			<pre><code class="language-sh"><span style="color: #000000">npm i nestjs-fireorm</span>
 </code></pre>
-			<p><a href="https://github.com/glebbash/nestjs-fireorm/tree/master/example/src">Example usage</a></p>
+			<p>This module is based on <a href="https://fireorm.js.org">Fireorm</a>. The <a href="https://fireorm.js.org/">FireORM documentation</a> is a great resource to
+				understand how <code>nestjs-fireorm</code> works. You&#39;ll need to add <code>nestjs-fireorm</code> to your root module,
+			which you can do like this:</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Module</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@nestjs/common&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">FireormModule</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;nestjs-fireorm&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">@</span><span style="color: #795E26">Module</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">imports:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">    </span><span style="color: #001080">FireormModule</span><span style="color: #000000">.</span><span style="color: #795E26">forRoot</span><span style="color: #000000">({</span>
+<span style="color: #000000">      </span><span style="color: #001080">fireormSettings:</span><span style="color: #000000"> { </span><span style="color: #001080">validateModels:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    }),</span>
+<span style="color: #000000">  ],</span>
+<span style="color: #000000">})</span>
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppModule</span><span style="color: #000000"> {}</span>
+</code></pre>
+			<p><em>There are other examples, which you can find in our repository <a href="./examples/src/app.module.ts">app.module.ts</a>.</em></p>
+			<p>To improve developer readability, we suggest using the same semantics as defined in <a href="https://docs.nestjs.com/techniques/database">Nest&#39;s
+				documentation on database</a>. Like, when creating a User type, we suggest using the name
+			<code>user.entity.ts</code>:</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Collection</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;fireorm&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">@</span><span style="color: #795E26">Collection</span><span style="color: #000000">()</span>
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">UserEntity</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">id</span><span style="color: #000000">!: </span><span style="color: #267F99">string</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+			<p>Read more about <a href="https://fireorm.js.org/#/Core_Concepts">Fireorm&#39;s core concepts</a> on how <em>entities</em> should be defined.</p>
+			<p>Entities has to be imported in your module, and we expose a simple method to do this, which looks like
+			this:</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Module</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@nestjs/common&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">FireormModule</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;nestjs-fireorm&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">User</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./entities/user.entity&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">@</span><span style="color: #795E26">Module</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">imports:</span><span style="color: #000000"> [</span><span style="color: #001080">FireormModule</span><span style="color: #000000">.</span><span style="color: #795E26">forFeature</span><span style="color: #000000">([</span><span style="color: #001080">User</span><span style="color: #000000">])],</span>
+<span style="color: #000000">})</span>
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppModule</span><span style="color: #000000"> {}</span>
+</code></pre>
+			<p>We&#39;ll need to inject the [repository]. <code>nestjs-fireorm</code> comes with a special <code>InjectRepository</code>
+			function, which is used like this:</p>
+			<pre><code class="language-typescript"><span style="color: #795E26">constructor</span><span style="color: #000000">(</span>
+<span style="color: #000000">  @</span><span style="color: #795E26">InjectRepository</span><span style="color: #000000">(</span><span style="color: #001080">User</span><span style="color: #000000">)</span>
+<span style="color: #000000">  </span><span style="color: #001080">private</span><span style="color: #000000"> </span><span style="color: #001080">users</span><span style="color: #000000">: </span><span style="color: #001080">BaseFirestoreRepository</span><span style="color: #000000">&lt;</span><span style="color: #001080">User</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">) {}</span>
+</code></pre>
+			<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+				<h2>Documentation</h2>
+			</a>
+			<p>Apart from this README, you can find examples of using the library in the following places:</p>
+			<ul>
+				<li><a href="https://github.com/glebbash/nestjs-fireorm/tree/master/example/src">Example usage</a></li>
+			</ul>
 			<p><a href="LICENSE">Mit Licensed</a></p>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
