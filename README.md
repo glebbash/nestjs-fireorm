@@ -20,7 +20,7 @@
 > Fireorm 🔥 is a tiny wrapper on top of firebase-admin that makes life easier when dealing with a
 > Firestore database.
 
-This module makes it easier when dealing with Firestore database when using Nest.js!
+This module makes it easier to deal with Firestore database when using Nest.js!
 
 **docs**: https://glebbash.github.io/nestjs-fireorm/
 
