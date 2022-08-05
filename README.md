@@ -85,6 +85,8 @@ We'll need to inject the [repository]. `nestjs-fireorm` comes with a special `In
 function, which is used like this:
 
 ```typescript
+import { InjectRepository } from 'nestjs-fireorm';
+
 constructor(
   @InjectRepository(User)
   private users: BaseFirestoreRepository<User>
