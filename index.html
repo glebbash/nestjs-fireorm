@@ -2773,7 +2773,9 @@ img {
 </code></pre>
 			<p>We&#39;ll need to inject the [repository]. <code>nestjs-fireorm</code> comes with a special <code>InjectRepository</code>
 			function, which is used like this:</p>
-			<pre><code class="language-typescript"><span style="color: #795E26">constructor</span><span style="color: #000000">(</span>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">InjectRepository</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;nestjs-fireorm&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #795E26">constructor</span><span style="color: #000000">(</span>
 <span style="color: #000000">  @</span><span style="color: #795E26">InjectRepository</span><span style="color: #000000">(</span><span style="color: #001080">User</span><span style="color: #000000">)</span>
 <span style="color: #000000">  </span><span style="color: #001080">private</span><span style="color: #000000"> </span><span style="color: #001080">users</span><span style="color: #000000">: </span><span style="color: #001080">BaseFirestoreRepository</span><span style="color: #000000">&lt;</span><span style="color: #001080">User</span><span style="color: #000000">&gt;</span>
 <span style="color: #000000">) {}</span>
