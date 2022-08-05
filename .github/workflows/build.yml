@@ -1,24 +1,33 @@
-name: Test and Publish
+name: build
 on: ["push", "pull_request"]
 
 jobs:
   test:
-    name: Build and test
-    runs-on: ubuntu-20.04
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16]
     steps:
       - uses: actions/checkout@v1
 
-      - name: Use Node.js 14
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: ${{ matrix.node }}
+
+      - name: Update npm
+        if: matrix.node == 14
+        run: |
+          npm i -g npm@latest
 
       - name: Test and generate coverage
         run: |
           npm ci
-          npm run test:prod
+          npm run test:ci
 
       - name: Coveralls
+        if: matrix.node == 16
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -35,10 +44,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 14
+      - name: Use Node.js 16
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Install dependencies
         run: |

@@ -1,5 +1,10 @@
 /* istanbul ignore file */
 
-export { FireormModule } from './fireorm/fireorm.module';
+export {
+  AsyncProvider,
+  FireormModule,
+  FireormModuleAsyncOptions,
+  FireormSettings,
+} from './fireorm/fireorm.module';
 export { FireormService } from './fireorm/fireorm.service';
-export { InjectRepository, getRepositoryToken } from './fireorm/utils/repository-token';
+export { getRepositoryToken, InjectRepository } from './fireorm/utils/repository-token';

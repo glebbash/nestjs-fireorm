@@ -11,13 +11,13 @@
   <strong>Wrapper for NestJS / Fireorm</strong>
 </p>
 
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Source](https://img.shields.io/badge/source-github-informational)](https://github.com/glebbash/nestjs-fireorm)
+[![Deploy](https://github.com/glebbash/nestjs-fireorm/actions/workflows/build.yml/badge.svg)](https://github.com/glebbash/nestjs-fireorm/actions)
 [![Coverage Status](https://coveralls.io/repos/github/glebbash/nestjs-fireorm/badge.svg?branch=master)](https://coveralls.io/github/glebbash/nestjs-fireorm?branch=master)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 `nestjs-fireorm` is a tiny [Nest.js][] [Fireorm][] module.
 
-> Fireorm 🔥 is a tiny wrapper on top of firebase-admin that makes life easier when dealing with a
+> Fireorm 🔥 is a tiny wrapper on top of firestore that makes life easier when dealing with a
 > Firestore database.
 
 This module makes it easier to deal with Firestore database when using Nest.js!
@@ -109,4 +109,6 @@ Apart from this README, you can find examples of using the library in the follow
 
 [example usage]: https://github.com/glebbash/nestjs-fireorm/tree/master/example/src
 
-[Mit Licensed](LICENSE)
+Bootstrapped with: [create-ts-lib-gh](https://github.com/glebbash/create-ts-lib-gh)
+
+This project is [MIT Licensed](LICENSE).

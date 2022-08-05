@@ -1,6 +1,7 @@
-import { Inject, Injectable, OnModuleDestroy, Type } from '@nestjs/common';
 import { Firestore } from '@google-cloud/firestore';
+import { Inject, Injectable, OnModuleDestroy, Type } from '@nestjs/common';
 import { BaseFirestoreRepository, getRepository, IEntity, initialize } from 'fireorm';
+
 import { FireormSettings } from './fireorm.module';
 
 @Injectable()

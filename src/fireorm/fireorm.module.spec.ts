@@ -1,10 +1,11 @@
 import { getRepositoryToken } from '../nestjs-fireorm';
 import { FireormModule, FireormSettings, firestoreProvider } from './fireorm.module';
 jest.mock('./fireorm.service');
+
 import { FireormService } from './fireorm.service';
-import 'jest-extended';
 jest.mock('@google-cloud/firestore');
 import { Firestore } from '@google-cloud/firestore';
+import { FactoryProvider } from '@nestjs/common';
 
 describe('FireormModule', () => {
   afterEach(() => jest.restoreAllMocks());
@@ -45,18 +46,17 @@ describe('FireormModule', () => {
           {
             provide: FireormService,
             inject: [Firestore, FireormSettings],
-            useFactory: expect.toSatisfy((fun) => {
-              const fireormService = fun(1, 2);
-
-              expect(fireormService).toBeInstanceOf(FireormService);
-              expect(FireormService).toBeCalledWith(1, 2);
-
-              return true;
-            }),
+            useFactory: expect.any(Function),
           },
         ],
         exports: [FireormService],
       });
+
+      const fireormServiceFactory = (mod as any).providers[2].useFactory;
+      const fireormService = fireormServiceFactory(1, 2);
+
+      expect(fireormService).toBeInstanceOf(FireormService);
+      expect(FireormService).toBeCalledWith(1, 2);
     });
   });
 
@@ -74,20 +74,19 @@ describe('FireormModule', () => {
         expect(provider).toEqual({
           provide: getRepositoryToken(entities[i]),
           inject: [FireormService],
-          useFactory: expect.toSatisfy((repositoryFactory) => {
-            const expectedRepository = 0;
-            const fireormServiceMock = {
-              getRepository: jest.fn().mockReturnValue(expectedRepository),
-            };
-
-            const repository = repositoryFactory(fireormServiceMock);
-
-            expect(repository).toBe(expectedRepository);
-            expect(fireormServiceMock.getRepository).toBeCalledWith(entities[i]);
-
-            return true;
-          }),
+          useFactory: expect.any(Function),
         });
+
+        const repositoryFactory = (provider as FactoryProvider).useFactory;
+        const expectedRepository = 0;
+        const fireormServiceMock = {
+          getRepository: jest.fn().mockReturnValue(expectedRepository),
+        };
+
+        const repository = repositoryFactory(fireormServiceMock);
+
+        expect(repository).toBe(expectedRepository);
+        expect(fireormServiceMock.getRepository).toBeCalledWith(entities[i]);
       });
     });
   });

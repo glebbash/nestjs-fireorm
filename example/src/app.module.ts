@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { credential } from 'firebase-admin';
 import { FireormModule } from 'nestjs-fireorm';
 
 @Module({
@@ -7,7 +6,6 @@ import { FireormModule } from 'nestjs-fireorm';
     FireormModule.forRoot({
       firestoreSettings: {
         projectId: '<project_id>',
-        credential: credential.applicationDefault(),
       },
       fireormSettings: { validateModels: true },
     }),

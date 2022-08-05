@@ -1,7 +1,7 @@
-import { FireormService } from './fireorm.service';
 import { Firestore } from '@google-cloud/firestore';
-import firebase from 'firebase-admin';
 import { BaseFirestoreRepository, Collection } from 'fireorm';
+
+import { FireormService } from './fireorm.service';
 
 describe('FireormService', () => {
   afterEach(() => jest.restoreAllMocks());
@@ -9,7 +9,6 @@ describe('FireormService', () => {
   const projectId = 'stub';
   const firestore = new Firestore({
     projectId,
-    credential: firebase.credential.applicationDefault(),
   });
   const fireormService = new FireormService(firestore, {
     fireormSettings: { validateModels: true },

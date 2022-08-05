@@ -1,6 +1,15 @@
 import { Firestore } from '@google-cloud/firestore';
-import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
+import {
+  ClassProvider,
+  DynamicModule,
+  ExistingProvider,
+  FactoryProvider,
+  Module,
+  Type,
+  ValueProvider,
+} from '@nestjs/common';
 import type { MetadataStorageConfig } from 'fireorm/lib/src/MetadataStorage';
+
 import { FireormService } from './fireorm.service';
 import { getRepositoryToken } from './utils/repository-token';
 
@@ -17,8 +26,13 @@ export type FireormSettings =
       fireormSettings?: MetadataStorageConfig;
     };
 
-type SettingsProvider = Exclude<Provider<FireormSettings | undefined>, Type>;
-type FirestoreModuleAsyncOptions = Omit<SettingsProvider, 'provide'>;
+export type AsyncProvider<T> =
+  | Omit<ClassProvider<T>, 'provide'>
+  | Omit<ValueProvider<T>, 'provide'>
+  | Omit<FactoryProvider<T>, 'provide'>
+  | Omit<ExistingProvider<T>, 'provide'>;
+
+export type FireormModuleAsyncOptions = AsyncProvider<FireormSettings | undefined>;
 
 @Module({})
 export class FireormModule {
@@ -65,12 +79,12 @@ export class FireormModule {
    * export class AppModule {}
    * ```
    */
-  static forRootAsync(options: FirestoreModuleAsyncOptions): DynamicModule {
+  static forRootAsync(options: FireormModuleAsyncOptions): DynamicModule {
     return {
       module: FireormModule,
       global: true,
       providers: [
-        <SettingsProvider>{
+        {
           provide: FireormSettings,
           ...options,
         },
