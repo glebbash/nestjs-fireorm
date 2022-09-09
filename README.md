@@ -99,7 +99,7 @@ constructor(
 [fireorm-repository]: https://fireorm.js.org/#/Core_Concepts?id=fireorm-repositories
 [nest.js]: https://nestjs.com
 [nest-db]: https://docs.nestjs.com/techniques/database
-[app-module]: ./examples/src/app.module.ts
+[app-module]: https://github.com/glebbash/nestjs-fireorm/blob/master/example/src/app.module.ts
 
 ## Documentation
 
