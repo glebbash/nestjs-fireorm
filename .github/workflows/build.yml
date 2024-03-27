@@ -16,18 +16,13 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Update npm
-        if: matrix.node == 14
-        run: |
-          npm i -g npm@latest
-
       - name: Test and generate coverage
         run: |
           npm ci
           npm run test:ci
 
       - name: Coveralls
-        if: matrix.node == 16
+        if: matrix.node == 20
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,10 +39,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 16
+      - name: Use Node.js 20
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Install dependencies
         run: |
