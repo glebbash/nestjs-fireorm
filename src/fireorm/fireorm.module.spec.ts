@@ -52,6 +52,7 @@ describe('FireormModule', () => {
         exports: [FireormService],
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const fireormServiceFactory = (mod as any).providers[2].useFactory;
       const fireormService = fireormServiceFactory(1, 2);
 

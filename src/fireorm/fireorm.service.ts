@@ -9,7 +9,7 @@ export class FireormService implements OnModuleDestroy {
   constructor(
     @Inject(Firestore) public readonly firestore: Firestore,
     @Inject(FireormSettings)
-    { fireormSettings }: Pick<FireormSettings, 'fireormSettings'>
+    { fireormSettings }: Pick<FireormSettings, 'fireormSettings'>,
   ) {
     initialize(firestore, fireormSettings);
   }

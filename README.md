@@ -107,7 +107,7 @@ Apart from this README, you can find examples of using the library in the follow
 
 - [Example usage][]
 
-[example usage]: https://github.com/glebbash/nestjs-fireorm/tree/master/example/src
+[example usage]: https://github.com/glebbash/nestjs-fireorm/tree/master/example
 
 Bootstrapped with: [create-ts-lib-gh](https://github.com/glebbash/create-ts-lib-gh)
 
